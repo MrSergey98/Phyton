@@ -390,3 +390,6 @@ def countelementsmorethenprev(a):
             k += 1
         s += i
     return k
+
+
+##12312
