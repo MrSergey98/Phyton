@@ -89,5 +89,19 @@ def flag():
                 a[j] = k
     return a
 
+# 5
+
+def dats(a):
+    tempa = a.split()
+    months = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля",
+              "августа", "сентября", "октября", "ноября", "декабря"]
+    d = []
+    for i in range(len(tempa) - 2):
+        if tempa[i].isdigit() and tempa[i + 2].isdigit():
+            if (1 <= int(tempa[i]) and 31 >= int(tempa[i]) and tempa[i + 1] in months and 1 <= int(
+                    tempa[i + 2]) and 2025 >= int(tempa[i + 2])):
+                d.append(tempa[i] + " " + tempa[i + 1] + " " + tempa[i + 2])
+    return d
+
 
 
