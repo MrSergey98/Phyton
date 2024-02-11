@@ -181,3 +181,20 @@ def sortstringsbychars():
 
     return b
 
+# 10
+
+def sortstringsbywords():
+    a = input("Введие строку, 0 для завершения\n")
+    b = []
+    while a != "0":
+        b.append(a)
+        a = input("Введие строку, 0 для завершения\n")
+    for i in range(len(b)):
+        for j in range(len(b) - 1):
+            if len(b[j + 1].split()) > len(b[j].split()):
+                k = b[j]
+                b[j] = b[j + 1]
+                b[j + 1] = k
+    return b
+
+
