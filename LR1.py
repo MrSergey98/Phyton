@@ -16,3 +16,15 @@ def maxprostdel(a):
         if a % i == 0 and prost(i):
             delit = i
     return delit
+
+
+# f2
+
+def proizv5(a):
+    p = 1
+    astr = str(a)
+    for i in astr:
+        if (int(i) % 5 != 0):
+            p *= int(i)
+    return p
+
