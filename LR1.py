@@ -114,5 +114,14 @@ def lenrus(a):
             k += 1
     return k
 
+# #8
+
+def leneng(a):
+    k = 0
+    for i in a:
+        if "a" <= i and "z" >= i:
+            k += 1
+    return k
+
 
 
