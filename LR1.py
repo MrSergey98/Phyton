@@ -103,5 +103,16 @@ def dats(a):
                 d.append(tempa[i] + " " + tempa[i + 1] + " " + tempa[i + 2])
     return d
 
+# 6-8
+
+# #3
+
+def lenrus(a):
+    k = 0
+    for i in a:
+        if "а" <= i.lower() and "я" >= i.lower():
+            k += 1
+    return k
+
 
 
