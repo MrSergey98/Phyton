@@ -281,3 +281,46 @@ def sortstringsbyascii():
     for i in mk:
         rm.append(b[i])
     return rm
+
+# #11
+
+def sortstringsbyascii2():
+    a = input("Введие строку, 0 для завершения\n")
+    b = []
+    while a != "0":
+        b.append(a)
+        a = input("Введие строку, 0 для завершения\n")
+    n = {}
+    max1 = 0
+    for i in range(0, len(b[0]), 3):
+        c1 = ord(b[0][i])
+        c2 = ord(b[0][i])
+        c3 = ord(b[0][i])
+        if (c1 + c2 + c3) / 3 > max1:
+            max1 = (c1 + c2 + c3) / 3
+    l = 0
+    for string in b:
+        max = 0
+        for i in range(0, len(string)-3, 3):
+            c1 = ord(string[i])
+            c2 = ord(string[i+1])
+            c3 = ord(string[i+2])
+            if (c1+c2+c3)/3 > max:
+                max = (c1+c2+c3)/3
+        n[l] = ((max-max1)/2)**2
+        l += 1
+    mk = list(n.keys())
+    mv = list(n.values())
+    for i in range(len(mv)):
+        for j in range(len(mv) - 1):
+            if mv[j + 1] < mv[j]:
+                k = mv[j]
+                mv[j] = mv[j + 1]
+                mv[j + 1] = k
+                k = mk[j]
+                mk[j] = mk[j + 1]
+                mk[j + 1] = k
+    rm = []
+    for i in mk:
+        rm.append(b[i])
+    return rm
