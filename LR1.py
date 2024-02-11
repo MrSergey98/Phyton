@@ -339,3 +339,10 @@ def elementsprevmin(a):
             l = i
     return a[:l]
 
+# #21
+
+
+def elementsaftermax(a):
+    max1 = max(a)
+    i = a.index(max1)
+    return a[i+1:]
