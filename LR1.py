@@ -324,3 +324,18 @@ def sortstringsbyascii2():
     for i in mk:
         rm.append(b[i])
     return rm
+
+# 15-19
+
+# #9
+def elementsprevmin(a):
+    min = a[0]
+    for i in a:
+        if i < min:
+            min = i
+    l = 0
+    for i in range(len(a)):
+        if a[i] == min:
+            l = i
+    return a[:l]
+
