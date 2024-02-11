@@ -123,5 +123,45 @@ def leneng(a):
             k += 1
     return k
 
+# #16
+
+def mindigit(a):
+    min = None
+    for i in range(len(a)):
+        if a[i].isdigit():
+            min = int(a[i])
+            k = i + 1
+            if k == len(a):
+                break
+            while a[k].isdigit():
+                min = int(str(min) + a[k])
+                k += 1
+                if k == len(a):
+                    break
+            break
+
+    i = 0
+
+    while i < len(a):
+        ch = ""
+        if a[i].isdigit():
+            ch = a[i]
+            k = i + 1
+            if k >= len(a):
+                if int(a[i]) < min:
+                    min = int(a[i])
+                break
+            while a[k].isdigit():
+                ch += a[k]
+                k += 1
+                if k >= len(a):
+                    break
+            if int(ch) < min:
+                min = int(ch)
+            i = k + 1
+        else:
+            i += 1
+
+    return min
 
 
