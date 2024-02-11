@@ -358,3 +358,13 @@ def proovealternation(a):
     if prov == 1:
         return True
     return False
+
+# #45
+
+
+def sumelemininterval(m,a,b):
+    sum = 0
+    for i in m:
+        if a < i < b:
+            sum += i
+    return sum
