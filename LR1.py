@@ -346,3 +346,15 @@ def elementsaftermax(a):
     max1 = max(a)
     i = a.index(max1)
     return a[i+1:]
+
+# #33
+
+
+def proovealternation(a):
+    prov = 1
+    for i in range(len(a)-1):
+        if a[i] > 0 and a[i+1] > 0 or a[i] < 0 and a[i+1] < 0:
+            prov = 0
+    if prov == 1:
+        return True
+    return False
