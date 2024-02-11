@@ -240,3 +240,44 @@ def sortstringsbyq():
         rm.append(b[i])
     return rm
 
+# #5
+
+# #9
+
+def sortstringsbyascii():
+    a = input("Введие строку, 0 для завершения\n")
+    b = []
+    while a != "0":
+        b.append(a)
+        a = input("Введие строку, 0 для завершения\n")
+    n = {}
+    l = 0
+    for string in b:
+        k = 0
+        for char in string:
+            if ord(char) > k:
+                k = ord(char)
+        lstr = int(len(string)/2)-1
+        dif = 0
+        if len(string) % 2 == 0:
+            dif = abs(ord(string[lstr])-ord(string[lstr+1]))
+        else:
+            dif = abs(ord(string[lstr]) - ord(string[lstr + 2]))
+        o = math.sqrt(((k-dif)**2)/2)
+        n[l] = o
+        l += 1
+    mk = list(n.keys())
+    mv = list(n.values())
+    for i in range(len(mv)):
+        for j in range(len(mv) - 1):
+            if mv[j + 1] < mv[j]:
+                k = mv[j]
+                mv[j] = mv[j + 1]
+                mv[j + 1] = k
+                k = mk[j]
+                mk[j] = mk[j + 1]
+                mk[j + 1] = k
+    rm = []
+    for i in mk:
+        rm.append(b[i])
+    return rm
