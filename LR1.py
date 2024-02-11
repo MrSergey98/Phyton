@@ -368,3 +368,15 @@ def sumelemininterval(m,a,b):
         if a < i < b:
             sum += i
     return sum
+
+# #57
+
+
+def countelementsmorethenprev(a):
+    k = 0
+    s = 0
+    for i in a:
+        if i > s:
+            k += 1
+        s += i
+    return k
