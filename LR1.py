@@ -76,5 +76,18 @@ def kolsv(a):
             k += 1
     return k
 
+# #16
+
+def flag():
+    a = ["красный", "синий", "белый"]
+    random.shuffle(a)
+    for i in range(len(a) - 1):
+        for j in range(len(a)):
+            if (i == 0 and a[j] == "белый") or (i == 1 and a[j] == "синий"):
+                k = a[i]
+                a[i] = a[j]
+                a[j] = k
+    return a
+
 
 
