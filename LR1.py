@@ -164,4 +164,20 @@ def mindigit(a):
 
     return min
 
+# 9
+
+def sortstringsbychars():
+    a = input("Введие строку, 0 для завершения\n")
+    b = []
+    while a != "0":
+        b.append(a)
+        a = input("Введие строку, 0 для завершения\n")
+    for i in range(len(b)):
+        for j in range(len(b) - 1):
+            if len(b[j + 1]) > len(b[j]):
+                k = b[j]
+                b[j] = b[j + 1]
+                b[j + 1] = k
+
+    return b
 
