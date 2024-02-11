@@ -37,4 +37,11 @@ def maxnechnepr(a):
             delit = i
     return delit
 
+def proizv(a):
+    p = 1
+    astr = str(a)
+    for i in astr:
+        p *= int(i)
+    return p
+
 
