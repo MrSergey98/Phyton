@@ -44,4 +44,11 @@ def proizv(a):
         p *= int(i)
     return p
 
+def nod(a, b):
+    delit = 1
+    for i in range(2, min(a, b) + 1):
+        if a % i == 0 and b % i == 0:
+            delit = i
+    return delit
+
 
