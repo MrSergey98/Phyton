@@ -62,4 +62,19 @@ def randomstring(a):
     print(newstr)
 
 
+# 2-4
+
+
+# #8
+
+
+def kolsv(a):
+    q = a.split()
+    k = 0
+    for i in q:
+        if len(a) % 2 == 0:
+            k += 1
+    return k
+
+
 
