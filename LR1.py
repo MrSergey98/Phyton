@@ -51,4 +51,15 @@ def nod(a, b):
             delit = i
     return delit
 
+# #3
+
+def randomstring(a):
+    q = a.split()
+    b = random.sample(range(len(q)), len(q))
+    newstr = ""
+    for i in b:
+        newstr += q[i] + " "
+    print(newstr)
+
+
 
