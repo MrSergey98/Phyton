@@ -28,3 +28,13 @@ def proizv5(a):
             p *= int(i)
     return p
 
+# f3
+
+def maxnechnepr(a):
+    delit = 1
+    for i in range(2, a + 1):
+        if a % 2 != 0 and a % i == 0 and not prost(i):
+            delit = i
+    return delit
+
+
