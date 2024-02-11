@@ -198,3 +198,45 @@ def sortstringsbywords():
     return b
 
 
+# 11-14
+
+def sortstringsbyq():
+    a = input("Введие строку, 0 для завершения\n")
+    b = []
+    while a != "0":
+        b.append(a)
+        a = input("Введие строку, 0 для завершения\n")
+    m = []
+    for string in b:
+        sl = {}
+        for char in string:
+            if char not in sl:
+                sl[char] = 1
+            else:
+                sl[char] += 1
+        m.append(sl)
+    n = {}
+    l = 0
+    for seg in m:
+        k = 0
+        for i in seg.keys():
+            if seg[i] > k:
+                k = seg[i]
+        n[l] = k
+        l += 1
+    mk = list(n.keys())
+    mv = list(n.values())
+    for i in range(len(mv)):
+        for j in range(len(mv) - 1):
+            if mv[j + 1] < mv[j]:
+                k = mv[j]
+                mv[j] = mv[j + 1]
+                mv[j + 1] = k
+                k = mk[j]
+                mk[j] = mk[j + 1]
+                mk[j + 1] = k
+    rm = []
+    for i in mk:
+        rm.append(b[i])
+    return rm
+
