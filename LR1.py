@@ -432,6 +432,7 @@ def countelementsmorethenprev(a):
         s += i
     return k
 
+
 if __name__ == '__main__':
     z = int(input("Введите номер задания\n"))
     match z:
@@ -453,4 +454,58 @@ if __name__ == '__main__':
             print(flag())
         case 5:
             print(dats(input("Введите текст\n")))
-            
+        case 6:
+            print(lenrus(input("Введите текст\n")))
+        case 7:
+            print(leneng(input("Введите текст\n")))
+        case 8:
+            print(mindigit(input("Введите текст\n")))
+        case 9:
+            print(sortstringsbychars())
+        case 10:
+            print(sortstringsbywords())
+        case 11:
+            print(sortstringsbyq())
+        case 12:
+            print(sortstringsbyotkl())
+        case 13:
+            print(sortstringsbyascii())
+        case 14:
+            print(sortstringsbyascii2())
+        case 15:
+            a = []
+            z = int(input("Введите элемент массива, 0 - признак конца\n"))
+            while z != 0:
+                a.append(z)
+                z = int(input("Введите элемент массива, 0 - признак конца\n"))
+            print(elementsprevmin(a))
+        case 16:
+            a = []
+            z = int(input("Введите элемент массива, 0 - признак конца\n"))
+            while z != 0:
+                a.append(z)
+                z = int(input("Введите элемент массива, 0 - признак конца\n"))
+            print(elementsaftermax(a))
+        case 17:
+            a = []
+            z = int(input("Введите элемент массива, 0 - признак конца\n"))
+            while z != 0:
+                a.append(z)
+                z = int(input("Введите элемент массива, 0 - признак конца\n"))
+            print(proovealternation(a))
+        case 18:
+            a = []
+            z = int(input("Введите элемент массива, 0 - признак конца\n"))
+            while z != 0:
+                a.append(z)
+                z = int(input("Введите элемент массива, 0 - признак конца\n"))
+            z1 = int(input("Введите (a\n"))
+            z2 = int(input("Введите b)\n"))
+            print(sumelemininterval(a, z1, z2))
+        case 19:
+            a = []
+            z = int(input("Введите элемент массива, 0 - признак конца\n"))
+            while z != 0:
+                a.append(z)
+                z = int(input("Введите элемент массива, 0 - признак конца\n"))
+            print(countelementsmorethenprev(a))
