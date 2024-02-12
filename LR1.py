@@ -1,6 +1,6 @@
 import math
 import random
-
+import statistics
 # f1
 def prost(a):
     k = 1
@@ -51,6 +51,11 @@ def nod(a, b):
             delit = i
     return delit
 
+
+
+
+# 2-4
+
 # #3
 
 def randomstring(a):
@@ -59,11 +64,7 @@ def randomstring(a):
     newstr = ""
     for i in b:
         newstr += q[i] + " "
-    print(newstr)
-
-
-# 2-4
-
+    return newstr
 
 # #8
 
@@ -207,7 +208,10 @@ def sortstringsbyq():
         b.append(a)
         a = input("Введие строку, 0 для завершения\n")
     m = []
-    q = {'о':9.28, 'а': 8.66, 'е' : 8.10, 'и' : 7.45, 'н' : 6.35, 'т' : 6.30, 'р' : 5.53, 'с' : 5.45, 'л' : 4.32, 'в' : 4.19, 'к' : 3.47, 'п' : 3.35, 'м' : 3.29, 'у' : 2.90, 'д' : 2.56, 'я' : 2.22, 'ы' : 2.11, 'ь' : 1.90, 'з' : 1.81, 'б' : 1.51, 'г' : 1.41, 'й' : 1.31, 'ч' : 1.27, 'ю' : 1.03, 'х' : 0.92, 'ж' : 0.78, 'ш' : 0.77, 'ц' : 0.52, 'щ' : 0.49, 'ф' : 0.40, 'э' : 0.17, 'ъ' : 0.04}
+    q = {'о':9.28, 'а': 8.66, 'е' : 8.10, 'и' : 7.45, 'н' : 6.35, 'т' : 6.30, 'р' : 5.53, 'с' : 5.45, 'л' : 4.32, 'в' : 4.19,
+         'к' : 3.47, 'п' : 3.35, 'м' : 3.29, 'у' : 2.90, 'д' : 2.56, 'я' : 2.22, 'ы' : 2.11, 'ь' : 1.90, 'з' : 1.81, 'б' : 1.51,
+         'г' : 1.41, 'й' : 1.31, 'ч' : 1.27, 'ю' : 1.03, 'х' : 0.92, 'ж' : 0.78, 'ш' : 0.77, 'ц' : 0.52, 'щ' : 0.49, 'ф' : 0.40,
+         'э' : 0.17, 'ъ' : 0.04}
     for string in b:
         sl = {}
         for char in string:
@@ -243,6 +247,51 @@ def sortstringsbyq():
     return rm
 
 # #5
+
+def sortstringsbyotkl():
+    a = input("Введие строку, 0 для завершения\n")
+    b = []
+    while a != "0":
+        b.append(a)
+        a = input("Введие строку, 0 для завершения\n")
+    m = []
+    q = {'о': 9.28, 'а': 8.66, 'е': 8.10, 'и': 7.45, 'н': 6.35, 'т': 6.30, 'р': 5.53, 'с': 5.45, 'л': 4.32, 'в': 4.19,
+         'к': 3.47, 'п': 3.35, 'м': 3.29, 'у': 2.90, 'д': 2.56, 'я': 2.22, 'ы': 2.11, 'ь': 1.90, 'з': 1.81, 'б': 1.51,
+         'г': 1.41, 'й': 1.31, 'ч': 1.27, 'ю': 1.03, 'х': 0.92, 'ж': 0.78, 'ш': 0.77, 'ц': 0.52, 'щ': 0.49, 'ф': 0.40,
+         'э': 0.17, 'ъ': 0.04}
+    for string in b:
+        sl = {}
+        for char in string:
+            if char not in sl:
+                sl[char] = 1
+            else:
+                sl[char] += 1
+        m.append(sl)
+    n = {}
+    l = 0
+    for seg in m:
+        k = statistics.stdev([seg[list(seg.keys())[0]], q[list(seg.keys())[0]]])
+        for i in list(seg.keys())[1::]:
+            if statistics.stdev([seg[i], q[i]]) > k:
+                k = statistics.stdev([seg[i], q[i]])
+        n[l] = k
+        l += 1
+    mk = list(n.keys())
+    mv = list(n.values())
+
+    for i in range(len(mv)):
+        for j in range(len(mv) - 1):
+            if mv[j + 1] < mv[j]:
+                k = mv[j]
+                mv[j] = mv[j + 1]
+                mv[j + 1] = k
+                k = mk[j]
+                mk[j] = mk[j + 1]
+                mk[j + 1] = k
+    rm = []
+    for i in mk:
+        rm.append(b[i])
+    return rm
 
 # #9
 
@@ -382,3 +431,26 @@ def countelementsmorethenprev(a):
             k += 1
         s += i
     return k
+
+if __name__ == '__main__':
+    z = int(input("Введите номер задания\n"))
+    match z:
+        case 1:
+            z = int(input("Введите номер функции\n"))
+            match z:
+                case 1:
+                    a = input("Введите число\n")
+                    print(maxprostdel(a))
+                case 2:
+                    print(proizv5(input("Введите число\n")))
+                case 3:
+                    print(maxnechnepr(input("Введите число\n")))
+        case 2:
+            print(randomstring(input("Введите троки\n")))
+        case 3:
+            print(kolsv(input("Введите строку\n")))
+        case 4:
+            print(flag())
+        case 5:
+            print(dats(input("Введите текст\n")))
+            
