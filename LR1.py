@@ -207,6 +207,7 @@ def sortstringsbyq():
         b.append(a)
         a = input("Введие строку, 0 для завершения\n")
     m = []
+    q = {'о':9.28, 'а': 8.66, 'е' : 8.10, 'и' : 7.45, 'н' : 6.35, 'т' : 6.30, 'р' : 5.53, 'с' : 5.45, 'л' : 4.32, 'в' : 4.19, 'к' : 3.47, 'п' : 3.35, 'м' : 3.29, 'у' : 2.90, 'д' : 2.56, 'я' : 2.22, 'ы' : 2.11, 'ь' : 1.90, 'з' : 1.81, 'б' : 1.51, 'г' : 1.41, 'й' : 1.31, 'ч' : 1.27, 'ю' : 1.03, 'х' : 0.92, 'ж' : 0.78, 'ш' : 0.77, 'ц' : 0.52, 'щ' : 0.49, 'ф' : 0.40, 'э' : 0.17, 'ъ' : 0.04}
     for string in b:
         sl = {}
         for char in string:
@@ -218,14 +219,15 @@ def sortstringsbyq():
     n = {}
     l = 0
     for seg in m:
-        k = 0
-        for i in seg.keys():
-            if seg[i] > k:
-                k = seg[i]
+        k = abs(seg[list(seg.keys())[0]]-q[list(seg.keys())[0]])
+        for i in list(seg.keys())[1::]:
+            if abs(seg[i]-q[i]) > k:
+                k = abs(seg[i]-q[i])
         n[l] = k
         l += 1
     mk = list(n.keys())
     mv = list(n.values())
+
     for i in range(len(mv)):
         for j in range(len(mv) - 1):
             if mv[j + 1] < mv[j]:
