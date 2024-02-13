@@ -1,6 +1,5 @@
-
-
 # 1
+
 
 def poliglots():
     k = int(input("Input k of students\n"))
@@ -27,4 +26,31 @@ def poliglots():
     print(len(nao))
     for i in nao:
         print(i)
+
+# 2
+
+
+def homework():
+    k = int(input())
+    sl = []
+    for i in range(k):
+        sl.append(input())
+    hw = input()
+    hw = hw.split()
+    mist = 0
+    for i in hw:
+        if i in sl:
+            pass
+        else:
+            sc = 0
+            for ch in i:
+                if ch.upper() == ch:
+                    sc += 1
+            if sc == 1:
+                pass
+            else:
+                mist += 1
+    print(mist)
+
+
 
