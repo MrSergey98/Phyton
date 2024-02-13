@@ -509,3 +509,4 @@ if __name__ == '__main__':
                 a.append(z)
                 z = int(input("Введите элемент массива, 0 - признак конца\n"))
             print(countelementsmorethenprev(a))
+
