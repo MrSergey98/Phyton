@@ -1,35 +1,31 @@
 import math
 
+def commuting(path_file):
+    file = open(path_file)
+    tmpString = file.readline().split()
+    kolbs = int(tmpString[1])
+    punkts_kolbs = []
+    for string in file:
+        tmpString = string.split()
+        punkts_kolbs.append((int(tmpString[0]), math.ceil(int(tmpString[1])/kolbs)))
+    punkts_kolbs.sort()
 
-# 1
-
-def cost_commuting(file_path):
-    a = open(file_path)
-    tmpString = a.readline().split()
-    punkts_count = int(tmpString[0])
-    kolbs_size = int(tmpString[1])
-    punkts_kolbs_sl = {}
-    for string in a:
-        punkt = int(string.split()[0])
-        kolbs = math.ceil(int(string.split()[1])/kolbs_size)
-        punkts_kolbs_sl[punkt] = kolbs
-    max_punkt = list(punkts_kolbs_sl.keys())[0]
-    cost = 0
-    for punkt in punkts_kolbs_sl.keys():
-        cost += abs(max_punkt - punkt) * punkts_kolbs_sl[punkt]
-    for i in list(punkts_kolbs_sl.keys())[1:]:
-        loc_cost = 0
-        max_punkt = i
-        for punkt in punkts_kolbs_sl.keys():
-            loc_cost += abs(max_punkt - punkt) * punkts_kolbs_sl[punkt]
-        if loc_cost < cost:
-            cost = loc_cost
-    print(cost)
-    a.close()
-
+    costs = []
+    left = 0
+    right = 0
+    cost_first = 0
+    for punkt in punkts_kolbs:
+        cost_first += abs(punkts_kolbs[0][0]-punkt[0])*punkt[1]
+        right += punkt[1]
+    costs.append(cost_first)
+    for i in range(1, len(punkts_kolbs[1:])):
+        left += punkts_kolbs[i-1][1]
+        costs.append(costs[-1]-right*(punkts_kolbs[i][0]-punkts_kolbs[i-1][0])+left*(punkts_kolbs[i][0]-punkts_kolbs[i-1][0]))
+        right -= punkts_kolbs[i][1]
+    print(min(costs))
 
 if __name__ == "__main__":
-    a = "27-122a.txt"
-    b = "27-122b.txt"
-    cost_commuting(a)
-    #cost_commuting(b)
+    a = "C:\\Users\\s0169591\\Desktop\\27-122a.txt"
+    b = "C:\\Users\\s0169591\\Desktop\\27-122b.txt"
+    commuting(a)
+    commuting(b)
