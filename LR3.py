@@ -74,22 +74,24 @@ def Geron(a, b, c):
 
 
 if __name__ == '__main__':
-
-    print("Inp points for Triangle")
-    pt = []
-    for i in range(3):
-        x = float(input("Inp x\n"))
-        y = float(input("Inp y\n"))
-        pt.append(Point(x, y))
-    tringle = Triangle(pt[0], pt[1], pt[2])
-    print("Inp points for Pentagon")
-    pp = []
-    for i in range(5):
-        x = float(input("Inp x\n"))
-        y = float(input("Inp y\n"))
-        pp.append(Point(x, y))
-    pentagon = Pentagon(pp[0], pp[1], pp[2], pp[3], pp[4])
-    #tringle.move(input("Inp x\n"), input("Inp y\n"))
-    #pentagon.move(input("Inp x\n"), input("Inp y\n"))
-    print(compare(tringle, pentagon))
+    try:
+        print("Inp points for Triangle")
+        pt = []
+        for i in range(3):
+            x = float(input("Inp x\n"))
+            y = float(input("Inp y\n"))
+            pt.append(Point(x, y))
+        tringle = Triangle(pt[0], pt[1], pt[2])
+        print("Inp points for Pentagon")
+        pp = []
+        for i in range(5):
+            x = float(input("Inp x\n"))
+            y = float(input("Inp y\n"))
+            pp.append(Point(x, y))
+        pentagon = Pentagon(pp[0], pp[1], pp[2], pp[3], pp[4])
+        #tringle.move(input("Inp x\n"), input("Inp y\n"))
+        #pentagon.move(input("Inp x\n"), input("Inp y\n"))
+        print(compare(tringle, pentagon))
+    except ValueError:
+        print("Введено не число!")
 
