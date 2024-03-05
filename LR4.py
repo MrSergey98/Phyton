@@ -53,11 +53,64 @@ def find_word(path_file):
                 sum_literalls = tmp_sum_literalls
     return ret_word
 
+# 3*
+
+
+def instabram(path_file):
+    file = open(path_file)
+    n, k = file.readline().split()
+    n = int(n)
+    k = int(k)
+    string_mas = file.readline()
+    massive = []
+    mas_sum = 0
+    for elem in string_mas.split():
+        massive.append(int(elem))
+        mas_sum += int(elem)
+    if mas_sum % k != 0:
+        print("Нет")
+    else:
+        massive_ind = [0 for i in range(k)]
+        loc_sum = 0
+        for i in range(len(massive)):
+            loc_sum += massive[i]
+            if loc_sum > mas_sum/k:
+                print("Нет")
+                return
+            elif loc_sum == mas_sum/k:
+                massive_ind[0] = i+1
+                break
+        for i in range(1, k):
+            loc_sum = 0
+            for j in range(massive_ind[i-1], len(massive)):
+                loc_sum += massive[j]
+                if loc_sum > mas_sum / k:
+                    print("Нет")
+                    return
+                elif loc_sum == mas_sum / k:
+                    massive_ind[i] = j + 1
+                    break
+        ret_string = ""+str(massive_ind[0])
+        for i in range(1, k):
+            ret_string += f" {massive_ind[i]-massive_ind[i-1]}"
+        print("Да")
+        print(ret_string)
+
 
 if __name__ == "__main__":
+    # 1
+
     # a_file = "C:\\Users\\s0169591\\Desktop\\27-122a.txt"
     # b_file = "C:\\Users\\s0169591\\Desktop\\27-122b.txt"
     # commuting(a_file)
     # commuting(b_file)
-    text_file = "text.txt"
-    print(find_word(text_file))
+
+    # 2
+
+    # text_file = "text.txt"
+    # print(find_word(text_file))
+
+    # 3*
+
+    file_3 = "3.txt"
+    instabram(file_3)
