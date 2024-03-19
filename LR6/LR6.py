@@ -39,7 +39,7 @@ def add_info():
     lawsuits = {1: 3, 2: 3, 3: 2, 4: 1}
     for key, val in lawsuits.items():
         cursor.execute('INSERT INTO Lawsuits (id_lawsuit, id_responsible) VALUES (?, ?)', (key, val))
-    lawsuits_dates = {1: '15.02.2024', 2: '07.10.2024', 3: '01.09.2024', 4: '02.06.2024'}
+    lawsuits_dates = {1: '2024-02-15', 2: '2024-10-07', 3: '2024-09-01', 4: '2024-06-02'}
     for key, val in lawsuits_dates.items():
         cursor.execute('INSERT INTO Lawsuits_dates (id_lawsuit, date) VALUES (?, ?)', (key, val))
 
@@ -49,10 +49,30 @@ def drop_tables():
     cursor.execute('drop table Responsible_for_lawsuits')
     cursor.execute('drop table Lawsuits')
     cursor.execute('drop table Lawsuits_dates')
-    
-# create_tables()
+
+def select():
+    """Выбор записей"""
+
+    cursor.execute('select id_responsible from Responsible_for_lawsuits where fio = "Сидоров"')
+    result = cursor.fetchall()[0][0]
+
+    cursor.execute('select id_lawsuit from Lawsuits where id_responsible = ?', (result,))
+    result = cursor.fetchall()
+
+    for row in result:
+        print(row[0])
+
+    cursor.execute('select id_lawsuit from Lawsuits_dates where date < ?', ('2024-10-03',))
+    result = cursor.fetchall()
+
+    for row in result:
+        print(row[0])
+
+
+create_tables()
 # add_info()
 # drop_tables()
+select()
 
 # Сохранение изменений и закрытие соединения
 connection.commit()
