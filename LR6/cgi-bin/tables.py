@@ -1,0 +1,28 @@
+import sqlite3
+con = sqlite3.connect("cgi-bin/my_database.db")
+cursor = con.cursor()
+cursor.execute("select * from Lawsuits")
+lawsuits = cursor.fetchall()
+cursor.execute("select * from Lawsuits_dates")
+lawsuits_dates = cursor.fetchall()
+cursor.execute("select * from Responsible_for_lawsuits")
+resp_for_lawsuits = cursor.fetchall()
+print("<html>")
+print()
+print("<head><meta charset=\"UTF-8\"><link rel=\"stylesheet\" href=\"../style.css\"><title>Таблицы</title></head>")
+print("<div class=\"flex-div\"><table><tr><th colspan=\"2\">Дела</th></tr><tr><th>id_lawsuit</th><th>date</th></tr>")
+for elem in lawsuits_dates:
+    print(f"<tr><td>{elem[0]}</td><td>{elem[1]}</td></tr>")
+print("</table>")
+print("<table><tr><th colspan=\"2\">Дела ответственных</th></tr><tr><th>id_lawsuit</th><th>id_responsible</th></tr>")
+for elem in lawsuits:
+    print(f"<tr><td>{elem[0]}</td><td>{elem[1]}</td></tr>")
+print("</table>")
+print("<table><tr><th colspan=\"2\">Ответственные</th></tr><tr><th>id_responsible</th><th>fio</th></tr>")
+for elem in resp_for_lawsuits:
+    print(f"<tr><td>{elem[0]}</td><td>{elem[1]}</td></tr>")
+print("</table></div>")
+print()
+print("<div class=\"flex-div\"><a href=\"../index.html\">Назад</a></div>")
+print()
+print("</html>")

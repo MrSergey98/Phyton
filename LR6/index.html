@@ -4,25 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Лабораторная работа 6</title>
-    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form action="">
-        <div class="form_div form_name">Дела</div>
-        <div class="form_div"><label for="">Дело: <input type="text" name="name" id=""></label></div>
-        <div class="form_div"><label for="">Дата: <input type="date" name="date" id=""></label></div>
-        <button class="form_div button_1" type="submit">Отправить</button>
-    </form>
-    <form action="">
-        <div class="form_div form_name">Ответственные</div>
-        <div class="form_div"><label for="">Имя: <input type="text" name="name" id=""></label></div>
-        <button class="form_div button_2" type="submit">Отправить</button>
-    </form>
-    <form action="">
-        <div class="form_div form_name">Дела ответственных</div>
-        <div class="form_div"><label for="">Дело: <input type="text" name="name" id=""></label></div>
-        <div class="form_div"><label for="">Имя: <input type="text" name="date" id=""></label></div>
-        <button class="form_div button_3" type="submit">Отправить</button>
-    </form>
+    <div class="flex-div">
+        <form name="Lawsuits_dates" action="/cgi-bin/lawsuit-date-form.py">
+            <div class="form_div form_name">Дела</div>
+            <div class="form_div"><label for="">Дело: <input type="text" name="id" id=""></label></div>
+            <div class="form_div"><label for="">Дата: <input type="date" name="date" id=""></label></div>
+            <button class="form_div button_1" type="submit">Отправить</button>
+        </form>
+        <form name="Lawsuits" action="/cgi-bin/lawsuit-form.py">
+            <div class="form_div form_name">Дела ответственных</div>
+            <div class="form_div"><label for="">Дело: <input type="text" name="lawsuit" id=""></label></div>
+            <div class="form_div"><label for="">Имя: <input type="text" name="name_resp" id=""></label></div>
+            <button class="form_div button_3" type="submit">Отправить</button>
+        </form>
+        <form name="Responsible_for_lawsuits" action="/cgi-bin/responsibles-form.py">
+            <div class="form_div form_name">Ответственные</div>
+            <div class="form_div"><label for="">Имя: <input type="text" name="name" id=""></label></div>
+            <button class="form_div button_2" type="submit">Отправить</button>
+        </form>
+    </div>
+    <div class="flex-div">
+        <a href="cgi-bin/tables.py">Таблицы</a>
+    </div>
 </body>
 </html>
