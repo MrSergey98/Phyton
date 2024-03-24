@@ -48,14 +48,17 @@ button:hover {
     justify-content: center;
 }
 a {
+    margin: 15px;
     text-decoration: none;
+    text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     border: 1px solid black;
     border-radius: 15px;
     width: 100px;
-    height: 30px;
+    height: fit-content;
+    min-height: 30px;
     bottom: 15px;
     background-color: rgba(241, 55, 241, 0.541);
 }
