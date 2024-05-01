@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таблицы</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+</head>
+<body>  
+    <div class="flex-div">
+        <table><tr><th colspan="2">Дела</th></tr><tr><th>id_lawsuit</th><th>Дата</th></tr>
+            {% for elem in lawsuits_dates %}
+                <tr><td>{{ elem.id }}</td><td>{{ elem.date }}</td></tr>
+            {% endfor %}
+        </table>
+        <table><tr><th colspan="2">Дела ответственных</th></tr><tr><th>id_lawsuit</th><th>id_responsible</th></tr>
+            {% for elem in lawsuits %}
+                <tr><td>{{ elem.lawsuit_id }}</td><td>{{ elem.responsible_id }}</td></tr>
+            {% endfor %}
+        </table>
+        <table><tr><th colspan="2">Ответственные</th></tr><tr><th>id_responsible</th><th>fio</th></tr>
+            {% for elem in responsible_for_lawsuits %}
+                <tr><td>{{ elem.id }}</td><td>{{ elem.name }}</td></tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="flex-div"><a href="../">Назад</a></div>
+</body>
+</html>
