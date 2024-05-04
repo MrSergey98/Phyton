@@ -4,19 +4,23 @@ from django.forms import ModelForm, DateTimeInput, TextInput
 class Lawsuits_datesForm(ModelForm):
     class Meta:
         model = Lawsuits_dates
-        fields = ['date']
+        fields = ['date', 'info']
         widgets = {
             "date": DateTimeInput(attrs={
                 "name":"date",
                 'class': 'form-control',
                 'type': "date"
-            })
+            }),
+            "info": TextInput(attrs={
+                "name":"info",
+                'class': 'form-control',
+                'type': "text"})
         }
 
 class LawsuitsForm(ModelForm):
     class Meta:
         model = Lawsuits
-        fields = ['responsible', 'lawsuit']
+        fields = ['responsible', 'lawsuit', 'info']
         widgets = {
             'responsible': TextInput(attrs={
                 "name":"responsible",
@@ -27,19 +31,27 @@ class LawsuitsForm(ModelForm):
                 "name":"id",
                 'class': 'form-control',
                 'type': 'text'
-            })
+            }),
+            "info": TextInput(attrs={
+                "name":"info",
+                'class': 'form-control',
+                'type': "text"})
         }
 
 class Responsible_for_lawsuitsForm(ModelForm):
     class Meta:
         model = Responsible_for_lawsuits
-        fields = ['name']
+        fields = ['name', "info"]
         widgets = {
             'name': TextInput(attrs={
                 "name":"name",
                 'class': 'form-control',
                 'type': 'text'
-            })
+            }),
+            "info": TextInput(attrs={
+                "name":"info",
+                'class': 'form-control',
+                'type': "text"})
         }
 
 

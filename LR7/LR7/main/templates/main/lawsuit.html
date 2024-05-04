@@ -1,0 +1,12 @@
+{% extends "main/shablon.html" %}
+{% block content %}
+    <form name="Lawsuit" action="" method="post">
+        {% csrf_token %} 
+        <div class="form_div form_name">Дела</div>
+        <div class="form_div"><label for="">Дата: {{ form.date }}</label></div>
+        <div class="form_div"><label for="">Информация: {{ form.info }} </label></div>
+        <button class="form_div button_1" type="submit" method="post">Отправить</button>
+    </form>
+{% endblock content %}
+            
+       

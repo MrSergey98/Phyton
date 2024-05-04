@@ -1,0 +1,14 @@
+{% extends "main/shablon.html" %}
+{% block content %}
+    <h1>
+        <div>Ответственный №{{responsible.id}}</div>
+    </h1>
+    <h2>
+        <div>Имя: {{responsible.name}}</div>
+        <div>Информация: {{responsible.info}}</div>
+    </h2>
+{% endblock content %}
+{% block content2 %}
+<input type="submit" value='Изменить' class="btn btn-info" onclick="window.location='/responsible/{{responsible.id}}/update'">
+<input type="submit" value='Удалить' class="btn btn-danger" onclick="window.location='/responsible/{{responsible.id}}/delete'">
+{% endblock content2 %}

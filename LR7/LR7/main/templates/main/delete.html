@@ -1,0 +1,11 @@
+{% extends "main/shablon.html" %}
+{% block content %}
+    
+    <form name="" action="" method="post" style="border: none; height:250px; width: 700px;">
+        <h1>Вы точно хотите удалить запись ?</h1>
+        {% csrf_token %}    
+        <input class="btn btn-danger" type="submit" method="post" value="Удалить">
+    </form>
+{% endblock content %}
+            
+       

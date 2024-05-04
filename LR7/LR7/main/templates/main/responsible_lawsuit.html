@@ -1,0 +1,13 @@
+{% extends "main/shablon.html" %}
+{% block content %}
+    <form name="Responsible-lawsuit" action="" method="post" style="height: 550px;">
+        {% csrf_token %}
+        <div class="form_div form_name">Дела ответственных</div>
+        <div class="form_div"><label for="">Дело: {{ form.lawsuit }}</label></div>
+        <div class="form_div"><label for="">Имя: {{ form.responsible }}</label></div>
+        <div class="form_div"><label for="">Информация: {{ form.info }} </label></div>
+        <button class="form_div button_3" type="submit" method="post">Отправить</button>
+    </form>
+{% endblock content %}
+            
+       

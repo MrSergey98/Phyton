@@ -1,0 +1,12 @@
+{% extends "main/shablon.html" %}
+{% block content %}
+    <form name="Responsible" action="" method="post">
+        {% csrf_token %}
+        <div class="form_div form_name">Ответственные</div>
+        <div class="form_div"><label for="">Имя: {{ form.name }} </label></div>
+        <div class="form_div"><label for="">Информация: {{ form.info }} </label></div>
+        <button class="form_div button_2" type="submit" method="post">Отправить</button>
+    </form>
+{% endblock content %}
+            
+       

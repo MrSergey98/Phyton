@@ -18,9 +18,17 @@ Including another URLconf
 from django.urls import path
 from . import views
 urlpatterns = [
-    path('', views.index, name="home"),
-    path('tables/', views.tables, name='tables'),
-    path('form_lawsuits/', views.form_lawsuits),
-    path('form_responsible/', views.form_responsible),
-    path('form_responsible_for_lawsuits/', views.form_responsible_for_lawsuits)
+    path('', views.tables, name="home"),
+    path('form_lawsuits/', views.form_lawsuits, name='lawsuit'),
+    path('form_responsible/', views.form_responsible, name='responsible'),
+    path('form_responsible_for_lawsuits/', views.form_responsible_for_lawsuits, name='responsible-lawsuit'),
+    path('lawsuit/<int:pk>/',views.DetailViewLawsuit.as_view(), name='lawsuit-detail'),
+    path('responsible/<int:pk>/',views.DetailViewResponsible.as_view(), name='responsible-detail'),
+    path('responsible-lawsuit/<int:pk>/',views.DetailViewResponsible_lawsuit.as_view(), name='responsible_lawsuit-detail'),
+    path('lawsuit/<int:pk>/update/', views.UpdateLawsuit.as_view(), name='lawsuit-update'),
+    path('responsible/<int:pk>/update', views.UpdateResponsible.as_view(), name='responsible-update'),
+    path('responsible-lawsuit/<int:pk>/update', views.UpdateResponsible_Lawsuit.as_view(), name='responsible_lawsuit-update'),
+    path('lawsuit/<int:pk>/delete/', views.DeleteLawsuit.as_view(), name='lawsuit-delete'),
+    path('responsible/<int:pk>/delete', views.DeleteResponsible.as_view(), name='responsible-delete'),
+    path('responsible-lawsuit/<int:pk>/delete', views.DeleteResponsible_Lawsuit.as_view(), name='responsible_lawsuit-delete')
 ]

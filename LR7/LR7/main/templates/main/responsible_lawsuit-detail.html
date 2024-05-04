@@ -1,0 +1,14 @@
+{% extends "main/shablon.html" %}
+{% block content %}
+    <h1>
+        <div>Дело № {{responsible_lawsuit.lawsuit_id}}</div>
+        <div>Ответственный №{{responsible_lawsuit.responsible_id}}</div>
+    </h1>
+    <h2>
+        <div>Информация: {{responsible_lawsuit.info}}</div>
+    </h2>
+{% endblock content %}
+{% block content2 %}
+<input type="submit" value='Изменить' class="btn btn-info" onclick="window.location='/responsible-lawsuit/{{responsible_lawsuit.id}}/update'">
+<input type="submit" value='Удалить' class="btn btn-danger" onclick="window.location='/responsible-lawsuit/{{responsible_lawsuit.id}}/delete'">
+{% endblock content2 %}
