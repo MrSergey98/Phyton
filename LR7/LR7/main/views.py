@@ -6,8 +6,19 @@ from django.views.generic import UpdateView, DetailView, DeleteView
 # Create your views here.
 
 def index(request):
-   
     return render(request, 'main/index.html')
+
+def table_lawsuits(request):
+    table2 = Lawsuits_dates.objects.all()
+    return render(request, 'main/tables_lawsuits.html', {'lawsuits_dates': table2})
+
+def table_responsible(request):
+    table1 = Responsible_for_lawsuits.objects.all()
+    return render(request, 'main/tables_responsible.html', {'responsible_for_lawsuits': table1})
+
+def table_responsible_lawsuits(request):
+    table3 = Lawsuits.objects.all()
+    return render(request, 'main/tables_responsible-lawsuits.html', {'lawsuits': table3})
 
 def tables(request):
     table1 = Responsible_for_lawsuits.objects.all()
