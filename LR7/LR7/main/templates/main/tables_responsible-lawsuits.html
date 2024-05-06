@@ -1,0 +1,18 @@
+{% extends 'main/shablon.html' %}
+{% block content %}
+<table><tr><th colspan="2">Дела ответственных</th></tr><tr><th>id_lawsuit</th><th>id_responsible</th></tr>
+    {% for elem in lawsuits %}
+        <tr><td>{{ elem.lawsuit_id }}</td><td>{{ elem.responsible_id }}</td>
+            <td>
+                <input type="submit" value='Просмотреть' class="btn btn-info" onclick="window.location='/responsible-lawsuit/{{elem.id}}'">
+            </td>
+        </tr>
+    {% endfor %}
+    <tr style="height: 50px;">
+        <td colspan="2">
+            <a style='btn btn-primary' href="{% url "responsible-lawsuit" %}">Добавить</a>
+        </td>
+    </tr>
+
+</table>
+{% endblock content %}
