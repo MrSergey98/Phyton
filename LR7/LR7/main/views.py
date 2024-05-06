@@ -41,7 +41,7 @@ def form_lawsuits(request):
         form = Lawsuits_datesForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('table_lawsuits')
     else:
         form = Lawsuits_datesForm()
         data = {
@@ -56,7 +56,7 @@ def form_responsible_for_lawsuits(request):
         form = LawsuitsForm({'responsible': responsible , 'lawsuit': lawsuit, 'info': request.POST['info']})
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('table_responsible_lawsuits')
     else:
         form = LawsuitsForm()
         data = {
@@ -69,7 +69,7 @@ def form_responsible(request):
         form = Responsible_for_lawsuitsForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('table_responsible')
     else:
         form = Responsible_for_lawsuitsForm()
         data = {
