@@ -1,0 +1,17 @@
+{% extends 'main/shablon.html' %}
+{% block content %}
+<table><tr><th colspan="2">Ответственные</th></tr><tr><th>id_responsible</th><th>fio</th></tr>
+    {% for elem in responsible_for_lawsuits %}
+        <tr><td>{{ elem.id }}</td><td>{{ elem.name }}</td>
+            <td>
+                <input type="submit" value='Просмотреть' class="btn btn-info" onclick="window.location='/responsible/{{elem.id}}'">
+            </td>
+        </tr>
+    {% endfor %}
+    <tr style="height: 50px;">
+        <td colspan="2">  
+            <a style='btn btn-primary' href="{% url "responsible" %}">Добавить</a>
+        </td>
+    </tr>
+</table>
+{% endblock content %}
