@@ -1,0 +1,12 @@
+{% extends "main/shablon.html" %}
+{% block content %}
+    <div class="flex-div">
+        <a class="" href="{% url 'table_lawsuits' %}">Дела</a>
+    </div>
+    <div class="flex-div">
+        <a href="{% url 'table_responsible_lawsuits' %}">Назначенные ответственным дела</a>
+    </div>
+    <div class="flex-div">
+        <a href="{% url 'table_responsible' %}">Ответственные</a>
+    </div>
+{% endblock content %}
