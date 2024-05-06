@@ -15,3 +15,8 @@
     </tr>
 </table>
 {% endblock content %}
+{% block content2 %}
+{% for index in count %}
+    <a href="?page={{index}}">{{index}}</a>
+{% endfor %}
+{% endblock content2 %}

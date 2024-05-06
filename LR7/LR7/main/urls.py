@@ -19,7 +19,7 @@ from django.urls import path
 from . import views
 urlpatterns = [
     path('', views.index, name="home"),
-    path('table_lawsuits',views.table_lawsuits, name='table_lawsuits'),
+    path('table_lawsuits/',views.table_lawsuits, name='table_lawsuits'),
     path('table_responsible',views.table_responsible, name='table_responsible'),
     path('table_responsible_lawsuits',views.table_responsible_lawsuits, name='table_responsible_lawsuits'),
     path('form_lawsuits/', views.form_lawsuits, name='lawsuit'),

@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, HttpResponse
 from .forms import Lawsuits_datesForm, Responsible_for_lawsuitsForm, LawsuitsForm
 from .models import Lawsuits, Lawsuits_dates, Responsible_for_lawsuits
 from django.views.generic import UpdateView, DetailView, DeleteView
+from django.core.paginator import Paginator
+import math
 
 # Create your views here.
 
@@ -10,21 +12,27 @@ def index(request):
 
 def table_lawsuits(request):
     table2 = Lawsuits_dates.objects.all()
-    return render(request, 'main/tables_lawsuits.html', {'lawsuits_dates': table2})
+    count = [i+1 for i in range(math.ceil(table2.count()/5))]
+    paginator = Paginator(table2, 5)
+    page_number = request.GET.get('page')
+    data = paginator.get_page(page_number)
+    return render(request, 'main/tables_lawsuits.html', {'lawsuits_dates': data, 'count': count})
 
 def table_responsible(request):
     table1 = Responsible_for_lawsuits.objects.all()
-    return render(request, 'main/tables_responsible.html', {'responsible_for_lawsuits': table1})
+    count = [i+1 for i in range(math.ceil(table1.count()/5))]
+    paginator = Paginator(table1, 5)
+    page_number = request.GET.get('page')
+    data = paginator.get_page(page_number)
+    return render(request, 'main/tables_responsible.html', {'responsible_for_lawsuits': data, 'count': count})
 
 def table_responsible_lawsuits(request):
     table3 = Lawsuits.objects.all()
-    return render(request, 'main/tables_responsible-lawsuits.html', {'lawsuits': table3})
-
-def tables(request):
-    table1 = Responsible_for_lawsuits.objects.all()
-    table2 = Lawsuits_dates.objects.all()
-    table3 = Lawsuits.objects.all()
-    return render(request, 'main/tables.html', {'responsible_for_lawsuits': table1, 'lawsuits_dates': table2, 'lawsuits': table3})
+    count = [i+1 for i in range(math.ceil(table3.count()/5))]
+    paginator = Paginator(table3, 5)
+    page_number = request.GET.get('page')
+    data = paginator.get_page(page_number)
+    return render(request, 'main/tables_responsible-lawsuits.html', {'lawsuits': data, 'count': count})
 
 def form_lawsuits(request):
 
